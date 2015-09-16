@@ -20,6 +20,10 @@ describe("Space", function() {
   });
 });
 
-// describe("Board", function() {
-//   it("returns ")
-// })
+describe("Board", function() {
+  it("creates an empty playing board", function() {
+    var testBoard = new Board(3, 3);
+    expect(testBoard.width).to.equal(3);
+    expect(testBoard.height).to.equal(3);
+  });
+});

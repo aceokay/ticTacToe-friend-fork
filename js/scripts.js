@@ -10,3 +10,8 @@ function Space(x, y) {
 Space.prototype.markBy = function(player) {
   this.markBy = player;
 };
+
+function Board(width, height) {
+  this.width = width;
+  this.height = height;
+}
