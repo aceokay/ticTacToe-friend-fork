@@ -38,6 +38,26 @@ describe("Board", function() {
 
   it("finds a space by coordinates", function() {
     var testBoard = new Board(3, 3);
-    expect(testBoard.find(1,1)).to.equal(undefined);
+    var testPlayer = new Player("tack");
+    var testSpace = new Space(2, 2);
+    testSpace.markBy(testPlayer);
+    testBoard.mark(testSpace);
+    expect(testBoard.find(1, 1)).to.equal(undefined);
+    expect(testBoard.find(2, 2)).to.equal(testSpace);
+  })
+
+  it("returns player if they have 3 in a row on the board", function() {
+    var testBoard = new Board(3, 3);
+    var testPlayer = new Player("tack");
+    var testSpace1 = new Space(3, 1);
+    var testSpace2 = new Space(3, 2);
+    var testSpace3 = new Space(3, 3);
+    testSpace1.markBy(testPlayer);
+    testSpace2.markBy(testPlayer);
+    testSpace3.markBy(testPlayer);
+    testBoard.mark(testSpace1);
+    testBoard.mark(testSpace2);
+    testBoard.mark(testSpace3);
+    expect(testBoard.winner()).to.equal(testPlayer);
   })
 });
