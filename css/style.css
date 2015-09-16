@@ -1,3 +1,6 @@
 .choose {
   cursor:pointer;
 }
+#playerTwoWeapon {
+  display:none;
+}
