@@ -23,7 +23,21 @@ describe("Space", function() {
 describe("Board", function() {
   it("creates an empty playing board", function() {
     var testBoard = new Board(3, 3);
-    expect(testBoard.width).to.equal(3);
-    expect(testBoard.height).to.equal(3);
+    expect(testBoard.x).to.equal(3);
+    expect(testBoard.y).to.equal(3);
   });
+
+  it("places a mark in the chosen space on the board", function() {
+    var testBoard = new Board(3, 3);
+    var testPlayer = new Player("tack");
+    var testSpace = new Space(2, 2);
+    testSpace.markBy(testPlayer);
+    testBoard.mark(testSpace);
+    expect(testBoard.mark).to.equal(testSpace);
+  });
+
+  // it("finds a space by coordinates", function() {
+  //   var testBoard = new Board(3, 3);
+  //   expect(testBoard.find(1,1)).to.equal(undefined);
+  // })
 });
