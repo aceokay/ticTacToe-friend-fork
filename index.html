@@ -10,22 +10,50 @@
     <link rel="stylesheet" href="css/style.css">
   </head>
   <body>
+    <nav class="navbar navbar-default" id="playerInfo">
+      <div class="container">
+        <div class="navbar-left" id="playerOneInfo">
+        </div>
+        <div class="navbar-right" id="playerTwoInfo">
+        </div>
+      </div>
+    </nav>
     <div class="container">
       <div id="playerOneWeapon">
         <h1 class="page-header">Player One:<br><small>Choose Your Weapon</small></h1>
         <div class="row">
-          <div class="col-xs-4"><a class="choose tick"><img src="img/tick.jpg" class="img-responsive"></a></div>
-          <div class="col-xs-4"><a class="choose tack"><img src="img/tack.jpg" class="img-responsive"></a></div>
-          <div class="col-xs-4"><a class="choose toe"><img src="img/toe.jpg" class="img-responsive"></a></div>
+          <div class="col-xs-4"><a class="choose tick"><img src="img/tick.jpg"></a></div>
+          <div class="col-xs-4"><a class="choose tack"><img src="img/tack.jpg"></a></div>
+          <div class="col-xs-4"><a class="choose toe"><img src="img/toe.jpg"></a></div>
         </div>
       </div>
       <div id="playerTwoWeapon">
         <h1 class="page-header">Player Two:<br><small>Choose Your Weapon</small></h1>
         <div class="row">
-          <div class="col-xs-4"><a class="choose tick"><img src="img/tick.jpg" class="img-responsive"></a></div>
-          <div class="col-xs-4"><a class="choose tack"><img src="img/tack.jpg" class="img-responsive"></a></div>
-          <div class="col-xs-4"><a class="choose toe"><img src="img/toe.jpg" class="img-responsive"></a></div>
+          <div class="col-xs-6"><a class="choose tick"><img src="img/tick.jpg"></a></div>
+          <div class="col-xs-6"><a class="choose tack"><img src="img/tack.jpg"></a></div>
+          <div class="col-xs-6"><a class="choose toe"><img src="img/toe.jpg"></a></div>
         </div>
+      </div>
+      <div id="gameBoard">
+        <div id="turnIndicator"><span></span>'s turn</div>
+        <table>
+          <tr>
+            <td class="board-ul" onclick="choose(1,1,0)"></td>
+            <td class="board-um" onclick="choose(1,2,1)"></td>
+            <td class="board-ur" onclick="choose(1,3,2)"></td>
+          </tr>
+          <tr>
+            <td class="board-ml" onclick="choose(2,1,3)"></td>
+            <td class="board-mm" onclick="choose(2,2,4)"></td>
+            <td class="board-mr" onclick="choose(2,3,5)"></td>
+          </tr>
+          <tr>
+            <td class="board-bl" onclick="choose(3,1,6)"></td>
+            <td class="board-bm" onclick="choose(3,2,7)"></td>
+            <td class="board-br" onclick="choose(3,3,8)"></td>
+          </tr>
+        </table>
       </div>
     </div>
   </body>

@@ -17,6 +17,20 @@ function Board(x, y) {
   this.marks = [];
 }
 
+function choose(x, y, id) {
+  var newSpace = new Space(x, y);
+  newSpace.markBy(players[turn]);
+  board.mark(newSpace);
+  $("#gameBoard table td:eq("+ id +")").append('<img class="info-pic" src="img/' + players[turn].mark + '.jpg">')
+  if (turn === 0) {
+    turn = 1;
+  } else {
+    turn = 0;
+  }
+  $("#turnIndicator span").empty();
+  $("#turnIndicator span").append('<img class="info-pic" src="img/' + players[turn].mark + '.jpg">')
+}
+
 Board.prototype.mark = function(space) {
   this.marks.push(space);
 };
