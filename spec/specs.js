@@ -33,11 +33,11 @@ describe("Board", function() {
     var testSpace = new Space(2, 2);
     testSpace.markBy(testPlayer);
     testBoard.mark(testSpace);
-    expect(testBoard.mark).to.equal(testSpace);
+    expect(testBoard.marks).to.eql([testSpace]);
   });
 
-  // it("finds a space by coordinates", function() {
-  //   var testBoard = new Board(3, 3);
-  //   expect(testBoard.find(1,1)).to.equal(undefined);
-  // })
+  it("finds a space by coordinates", function() {
+    var testBoard = new Board(3, 3);
+    expect(testBoard.find(1,1)).to.equal(undefined);
+  })
 });

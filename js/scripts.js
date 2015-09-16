@@ -14,15 +14,17 @@ Space.prototype.markBy = function(player) {
 function Board(x, y) {
   this.x = x;
   this.y = y;
+  this.marks = [];
 }
 
 Board.prototype.mark = function(space) {
-  this.mark = space;
+  this.marks.push(space);
 };
 
-// Board.prototype.find = function(x, y) {
-//
-//   for(var i = 1; i <= this.x; ++i) {
-//
-//   }
-// };
+Board.prototype.find = function(x, y) {
+  this.marks.forEach(function(space) {
+    if (space.x === x && space.y === y) {
+      return space;
+    };
+  });
+};
