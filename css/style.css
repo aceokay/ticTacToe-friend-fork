@@ -5,7 +5,7 @@
   width:200px;
   height: auto;
 }
-#playerTwoWeapon, #playerInfo, #gameBoard {
+#playerTwoWeapon, #playerInfo, #gameBoard, #errors {
   display:none;
 }
 .info-pic {

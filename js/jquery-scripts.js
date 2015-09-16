@@ -1,11 +1,9 @@
 $(document).ready(function() {
   $("#playerOneWeapon .choose").click(function() {
     var choice = $(this).attr('class').split(' ')[1];
-    players = [new Player(choice)];
-    turn = 0;
-    board = new Board(3,3);
+    game = new Game([new Player(choice)], 0, new Board(3,3));
 
-    $("#playerOneInfo").append("Player One <img class='info-pic' src='img/" + choice + ".jpg'> <span class='score'>0</span>");
+    $("#playerOneInfo").append("Player One <img class='info-pic' src='img/" + choice + ".jpg'> <span class='score'>" + game.players[0].score + "</span>");
 
     $("#playerOneWeapon").hide();
     $("#playerTwoWeapon").show();
@@ -14,19 +12,15 @@ $(document).ready(function() {
 
     $("#playerTwoWeapon .choose").click(function() {
       var choice = $(this).attr('class').split(' ')[1];
-      players.push(new Player(choice));
+      game.players.push(new Player(choice));
 
-      $("#playerTwoInfo").append("<span class='score'>0</span> <img class='info-pic' src='img/" + choice + ".jpg'> Player Two");
+      $("#playerTwoInfo").append("<span class='score'>" + game.players[1].score + "</span> <img class='info-pic' src='img/" + choice + ".jpg'> Player Two");
 
       $("#playerTwoWeapon").hide();
       $("#gameBoard").show();
 
-      $("#turnIndicator span").append('<img class="info-pic" src="img/' + players[turn].mark + '.jpg">')
+      $("#turnIndicator span").append('<img class="info-pic" src="img/' + game.players[game.turn].mark + '.jpg">')
 
     });
-
-
   });
-
-
 });
