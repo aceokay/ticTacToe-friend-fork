@@ -1,11 +1,11 @@
-.choose, #gameBoard td {
+.choose, #gameBoard td, .newGame {
   cursor:pointer;
 }
 .choose img {
   width:200px;
   height: auto;
 }
-#playerTwoWeapon, #playerInfo, #gameBoard, #errors {
+#playerTwoWeapon, #playerInfo, #gameBoard, #errors, #success {
   display:none;
 }
 .info-pic {

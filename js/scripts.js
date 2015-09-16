@@ -32,25 +32,33 @@ function choose(x, y, id) {
     var newSpace = new Space(x, y);
     newSpace.markBy(game.players[game.turn]);
     game.board.mark(newSpace);
-    $("#gameBoard table td:eq("+ id +")").append('<img class="info-pic" src="img/' + game.players[game.turn].mark + '.jpg">')
-    if (game.board.marks.length === 9) {
-      alert("Cats Game.  You both lose!");
-      $('#gameBoard table').addClass('gameover').on('click');
-    } else if (game.board.winner() === undefined) {
-      if (game.turn === 0) {
-        game.turn = 1;
-      } else {
-        game.turn = 0;
-      }
-      $("#turnIndicator span").empty();
-      $("#turnIndicator span").append('<img class="info-pic" src="img/' + game.players[game.turn].mark + '.jpg">')
-    } else {
+    $("#gameBoard table td:eq("+ id +")").append('<img class="info-pic" src="img/' + game.players[game.turn].mark + '.jpg">');
+
+    if (game.board.winner() !== undefined) {
+      // Update score if one player wins
       $('#gameBoard table').addClass('gameover').on('click');
       game.players[game.turn].score += 1;
       $('#playerOneInfo .score').text(game.players[0].score);
       $('#playerTwoInfo .score').text(game.players[1].score);
+      $("#success").show();
+      $("#success .playernumber").text(game.turn + 1);
+    } else if (game.board.marks.length === 9) {
+      // Finish game if tie
+      alert("Cats Game.  You both lose!");
+      $('#gameBoard table').addClass('gameover').on('click');
     }
+
+    // Change Player Turn
+    if (game.turn === 0) {
+      game.turn = 1;
+    } else {
+      game.turn = 0;
+    }
+
+    $("#turnIndicator span").empty();
+    $("#turnIndicator span").append('<img class="info-pic" src="img/' + game.players[game.turn].mark + '.jpg">')
   } else {
+    // Error for picking a square that has already been chosen
     $("#errors").show();
     $("#errors").text("Already Chosen! Choose an empty square");
   }

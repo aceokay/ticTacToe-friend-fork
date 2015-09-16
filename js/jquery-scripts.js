@@ -20,7 +20,13 @@ $(document).ready(function() {
       $("#gameBoard").show();
 
       $("#turnIndicator span").append('<img class="info-pic" src="img/' + game.players[game.turn].mark + '.jpg">')
-
     });
+  });
+
+  $(".newGame").click(function() {
+    game.board = new Board(3,3);
+    $("#gameBoard table td").empty();
+    $('#gameBoard table').removeClass('gameover');
+    $("#success").hide();
   });
 });
