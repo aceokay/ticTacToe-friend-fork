@@ -12,12 +12,26 @@ function Board(x, y) {
   this.x = x;
   this.y = y;
   this.marks = [];
+  this.computerPlayer = false;
 }
 
 function Game(players, turn, board) {
   this.players = players;
   this.turn = turn;
   this.board = board;
+}
+
+function computerPlay(humanPlayer) {
+  var computer = new Player("tick");
+  var board = new Board(3, 3);
+  var game = new Game([humanPlayer, computer], 0, board)
+  board.computerAction();
+  this.humanPlayer = humanPlayer;
+  this.game = game;
+}
+
+Board.prototype.computerAction = function() {
+  this.computerPlayer = true;
 }
 
 Space.prototype.markBy = function(player) {

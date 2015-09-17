@@ -61,3 +61,29 @@ describe("Board", function() {
     expect(testBoard.winner()).to.equal(testPlayer);
   })
 });
+
+describe("Game", function() {
+  it('creates a new game', function() {
+    var testBoard = new Board(3, 3);
+    var testPlayer = new Player("tack");
+    var testPlayer2 = new Player("tickle");
+    var newGame = new Game([testPlayer, testPlayer2], 0, testBoard);
+    expect(newGame.players).to.eql([testPlayer, testPlayer2]);
+    expect(newGame.turn).to.equal(0);
+    expect(newGame.board).to.equal(testBoard);
+  });
+});
+
+describe("computerPlay", function() {
+  it('creates a computer player in a new game of tic-tac-toe', function() {
+    var testBoard = new Board(3, 3);
+    var testPlayer = new Player("tack");
+    var testPlayer2 = new Player("tick");
+    var newGame = new Game([testPlayer, testPlayer2], 0, testBoard);
+    var newComputerPlay = new computerPlay(testPlayer);
+    newGame.board.computerPlayer = true;
+    expect(newComputerPlay.game).to.eql(newGame);
+    expect(newComputerPlay.game.board.computerPlayer).to.eql(true);
+    expect(newComputerPlay.humanPlayer).to.equal(testPlayer);
+  });
+});
